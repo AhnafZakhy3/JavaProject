@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gudangx.controller.LaporanController">
+    
+    <top>
+        <VBox spacing="10.0" style="-fx-background-color: #2c3e50; -fx-padding: 20;">
+            <HBox alignment="CENTER_LEFT" spacing="20.0">
+                <Button onAction="#navDashboard" text="&lt; Kembali" />
+                <Label text="Laporan Persediaan Barang" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Label>
+            </HBox>
+            
+            <HBox spacing="10.0" alignment="CENTER_LEFT" style="-fx-padding: 10; -fx-background-color: #ecf0f1; -fx-background-radius: 5;">
+                <Label text="Periode:" />
+                <DatePicker fx:id="dpStart" promptText="Dari Tanggal" prefWidth="120" />
+                <Label text="-" />
+                <DatePicker fx:id="dpEnd" promptText="Sampai Tanggal" prefWidth="120" />
+                
+                <Label text="Kategori:" />
+                <ComboBox fx:id="cmbKategori" promptText="Semua Kategori" prefWidth="150" />
+                
+                <Label text="Cari:" />
+                <TextField fx:id="txtSearch" promptText="Kode / Nama Barang" prefWidth="150" />
+                
+                <Button text="Tampilkan" onAction="#handleTampilkan" style="-fx-background-color: #2980b9; -fx-text-fill: white;" />
+                <Button text="Reset" onAction="#handleReset" />
+            </HBox>
+        </VBox>
+    </top>
+    
+    <center>
+        <TableView fx:id="tblLaporan" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="colKode" prefWidth="100.0" text="Kode Barang" />
+                <TableColumn fx:id="colNama" prefWidth="200.0" text="Nama Barang" />
+                <TableColumn fx:id="colKat" prefWidth="100.0" text="Kategori" />
+                <TableColumn fx:id="colStokAwal" prefWidth="80.0" text="Stok Awal" style="-fx-alignment: CENTER;" />
+                <TableColumn fx:id="colMasuk" prefWidth="80.0" text="Masuk" style="-fx-alignment: CENTER; -fx-text-fill: green;" />
+                <TableColumn fx:id="colKeluar" prefWidth="80.0" text="Keluar" style="-fx-alignment: CENTER; -fx-text-fill: red;" />
+                <TableColumn fx:id="colStokAkhir" prefWidth="80.0" text="Stok Akhir" style="-fx-alignment: CENTER; -fx-font-weight: bold;" />
+                <TableColumn fx:id="colHarga" prefWidth="120.0" text="Harga Beli" style="-fx-alignment: CENTER_RIGHT;" />
+                <TableColumn fx:id="colTotalNilai" prefWidth="150.0" text="Total Nilai" style="-fx-alignment: CENTER_RIGHT;" />
+            </columns>
+        </TableView>
+    </center>
+    
+</BorderPane>

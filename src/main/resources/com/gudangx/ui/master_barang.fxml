@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gudangx.controller.MasterBarangController">
+   <top>
+      <HBox alignment="CENTER_LEFT" spacing="20.0" style="-fx-background-color: #ddd;" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#navDashboard" text="&lt; Back" />
+            <Label text="MASTER BARANG">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+         </padding>
+      </HBox>
+   </top>
+   <center>
+      <VBox spacing="10.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <children>
+            <HBox spacing="10.0">
+               <children>
+                  <TextField fx:id="txtSearch" prefWidth="300.0" promptText="Cari nama / kode / kategori..." />
+                  <HBox alignment="CENTER_RIGHT" spacing="10.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#handleAdd" text="Tambah" />
+                        <Button mnemonicParsing="false" onAction="#handleEdit" text="Edit" />
+                        <Button mnemonicParsing="false" onAction="#handleDelete" text="Hapus" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <TableView fx:id="tblBarang" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="colKode" prefWidth="75.0" text="Kode" />
+                <TableColumn fx:id="colNama" prefWidth="150.0" text="Nama Barang" />
+                  <TableColumn fx:id="colKategori" prefWidth="100.0" text="Kategori" />
+                  <TableColumn fx:id="colSatuan" prefWidth="75.0" text="Satuan" />
+                  <TableColumn fx:id="colHargaBeli" prefWidth="100.0" text="Hrg Beli" />
+                  <TableColumn fx:id="colHargaJual" prefWidth="100.0" text="Hrg Jual" />
+                  <TableColumn fx:id="colStok" prefWidth="75.0" text="Stok" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

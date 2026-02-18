@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gudangx.controller.DashboardController">
+   <top>
+      <HBox alignment="CENTER_LEFT" spacing="20.0" style="-fx-background-color: #ddd;" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="GUDANG X DASHBOARD">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblWelcome" text="Selamat Datang, User" />
+            <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handleLogout" text="Logout" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+         </padding>
+      </HBox>
+   </top>
+   <left>
+      <VBox spacing="10.0" style="-fx-background-color: #eee;" BorderPane.alignment="CENTER">
+         <children>
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Dashboard" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#navMasterBarang" text="Master Barang" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#navBarangMasuk" text="Barang Masuk" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#navBarangKeluar" text="Barang Keluar" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#navLaporan" text="Laporan Persediaan" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </left>
+   <center>
+      <VBox spacing="20.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <children>
+            <HBox spacing="20.0">
+               <children>
+                  <VBox style="-fx-border-color: #ccc; -fx-padding: 10;">
+                     <children>
+                        <Label text="Total Barang" />
+                        <Label fx:id="lblTotalBarang" text="0">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox style="-fx-border-color: #ccc; -fx-padding: 10;">
+                     <children>
+                        <Label text="Total Stok Unit" />
+                        <Label fx:id="lblTotalStok" text="0">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox style="-fx-border-color: #ccc; -fx-padding: 10;">
+                     <children>
+                        <Label text="Item Stok Menipis" />
+                        <Label fx:id="lblLowStock" text="0" textFill="RED">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Label text="Peringatan Stok Menipis" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tblLowStock" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="colKode" prefWidth="100.0" text="Kode" />
+                <TableColumn fx:id="colNama" prefWidth="200.0" text="Nama Barang" />
+                  <TableColumn fx:id="colStok" prefWidth="75.0" text="Stok" />
+                  <TableColumn fx:id="colMinStok" prefWidth="75.0" text="Min. Stok" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gudangx.controller.BarangMasukController">
+   <top>
+      <HBox alignment="CENTER_LEFT" spacing="20.0" style="-fx-background-color: #ddd;" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#navDashboard" text="&lt; Back" />
+            <Label text="BARANG MASUK">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+         </padding>
+      </HBox>
+   </top>
+   <center>
+      <VBox spacing="20.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <children>
+            <HBox spacing="20.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <VBox spacing="10.0" style="-fx-border-color: #ccc; -fx-padding: 10; -fx-background-color: #f9f9f9;">
+                     <children>
+                        <Label text="Input Barang Masuk">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <GridPane hgap="10.0" vgap="10.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="80.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Barang:" />
+                              <ComboBox fx:id="cmbBarang" prefWidth="200.0" promptText="Pilih Barang" GridPane.columnIndex="1" />
+                              <Label text="Qty:" GridPane.rowIndex="1" />
+                              <TextField fx:id="txtQty" promptText="Jumlah Masuk" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label text="Supplier:" GridPane.rowIndex="2" />
+                              <TextField fx:id="txtSupplier" promptText="Nama Supplier" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label text="No Dok:" GridPane.rowIndex="3" />
+                              <TextField fx:id="txtNoDokumen" promptText="No Surat Jalan / Invoice" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label text="Ket:" GridPane.rowIndex="4" GridPane.valignment="TOP" />
+                              <TextArea fx:id="txtKeterangan" prefHeight="50.0" prefWidth="200.0" promptText="Keterangan tambahan..." GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleSimpan" text="Simpan Transaksi" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </VBox>
+                  <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="Riwayat Barang Masuk">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="tblHistory" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                          <columns>
+                            <TableColumn fx:id="colTgl" prefWidth="120.0" text="Tanggal" />
+                            <TableColumn fx:id="colBarang" prefWidth="150.0" text="Barang" />
+                              <TableColumn fx:id="colQty" prefWidth="50.0" text="Qty" />
+                              <TableColumn fx:id="colSupplier" prefWidth="100.0" text="Supplier" />
+                              <TableColumn fx:id="colUser" prefWidth="100.0" text="Admin" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
