@@ -69,4 +69,4 @@ mvn clean javafx:run
 - Transaksi stok masuk/keluar otomatis mengupdate jumlah stok di tabel master barang/stok.
 
 ---
-*Dibuat oleh Tim GudangX*
+*Dibuat oleh Ahnaf Zakhy*
