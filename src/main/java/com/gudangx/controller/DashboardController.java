@@ -7,6 +7,7 @@ import com.gudangx.service.GudangService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -41,13 +42,22 @@ public class DashboardController {
     @FXML
     private TableColumn<Barang, Integer> colMinStok;
 
+    @FXML
+    private Button btnMasterBarang;
+
     private final GudangService service = new GudangService();
 
     @FXML
     public void initialize() {
         if (AppConfig.getCurrentUser() != null) {
+            String role = AppConfig.getCurrentUser().getRole();
             lblWelcome.setText("Selamat Datang, " + AppConfig.getCurrentUser().getNama() + " ("
-                    + AppConfig.getCurrentUser().getRole() + ")");
+                    + role + ")");
+
+            // Restrict Access: Only ADMIN can access Master Barang
+            if ("STAFF".equalsIgnoreCase(role)) {
+                btnMasterBarang.setDisable(true);
+            }
         }
 
         colKode.setCellValueFactory(new PropertyValueFactory<>("kodeBarang"));
@@ -85,6 +95,10 @@ public class DashboardController {
 
     @FXML
     private void navMasterBarang() throws IOException {
+        if (AppConfig.getCurrentUser() != null && "STAFF".equalsIgnoreCase(AppConfig.getCurrentUser().getRole())) {
+            // Should not happen if button is disabled, but good for safety
+            return;
+        }
         Main.setRoot("master_barang");
     }
 

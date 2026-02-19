@@ -35,7 +35,7 @@
       <VBox spacing="10.0" style="-fx-background-color: #eee;" BorderPane.alignment="CENTER">
          <children>
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Dashboard" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#navMasterBarang" text="Master Barang" />
+            <Button fx:id="btnMasterBarang" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#navMasterBarang" text="Master Barang" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#navBarangMasuk" text="Barang Masuk" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#navBarangKeluar" text="Barang Keluar" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#navLaporan" text="Laporan Persediaan" />
