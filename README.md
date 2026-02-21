@@ -49,6 +49,7 @@ Buka terminal/cmd di folder root project (folder yang ada `pom.xml`):
 ```bash
 mvn clean javafx:run
 ```
+Atau tinggal di run lewat netbeans
 
 ## 👤 Akun Login Default
 - **Username**: `admin`
